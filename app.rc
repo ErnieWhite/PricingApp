@@ -2,8 +2,9 @@
 #include "resource.h"
 
 // Icon
-IDI_PRICINGAPP ICON "icon.ico"
-IDI_SMALL ICON "icon_small.ico"
+// Note: Uncomment these lines when you have proper .ico files
+// IDI_PRICINGAPP ICON "icon.ico"
+// IDI_SMALL ICON "icon_small.ico"
 
 // Menu
 IDC_PRICINGAPP MENU

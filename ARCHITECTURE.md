@@ -98,10 +98,21 @@ After building:
 
 ## Icon Files
 
-The current icon.ico and icon_small.ico are placeholders. To add real icons:
+The application currently uses default system icons (IDI_APPLICATION). To add custom icons:
+
 1. Create .ico files (16x16 and 32x32 recommended for small, 32x32 and 48x48 for large)
-2. Replace the placeholder files
-3. Rebuild the application
+2. Replace the placeholder files (icon.ico and icon_small.ico)
+3. Uncomment the icon resource lines in app.rc:
+   ```rc
+   IDI_PRICINGAPP ICON "icon.ico"
+   IDI_SMALL ICON "icon_small.ico"
+   ```
+4. Update main.c to load the custom icons in MyRegisterClass():
+   ```c
+   wcex.hIcon = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_PRICINGAPP));
+   wcex.hIconSm = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_SMALL));
+   ```
+5. Rebuild the application
 
 You can create icons using:
 - Visual Studio's built-in icon editor
